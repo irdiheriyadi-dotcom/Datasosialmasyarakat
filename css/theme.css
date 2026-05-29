@@ -1,0 +1,447 @@
+/* ============================================
+   THEME COLOR VARIABLES & STYLES
+   ============================================ */
+
+/* DEFAULT THEME - BLUE */
+:root {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --primary-light: #5dade2;
+    --accent-color: #3498db;
+}
+
+/* ============================================
+   BLUE THEME (Default)
+   ============================================ */
+body.theme-blue {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --primary-light: #5dade2;
+    --accent-color: #3498db;
+}
+
+body.theme-blue .sidebar {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+body.theme-blue .top-bar {
+    border-bottom-color: #3498db;
+}
+
+body.theme-blue .modal-header {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+body.theme-blue .table-main thead {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+body.theme-blue .btn-primary {
+    background-color: #3498db;
+}
+
+body.theme-blue .btn-primary:hover {
+    background-color: #2980b9;
+}
+
+body.theme-blue .search-input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+body.theme-blue .menu-item.active {
+    border-left-color: #5dade2;
+}
+
+body.theme-blue .stat-icon {
+    color: #3498db;
+}
+
+body.theme-blue .btn-action {
+    background-color: #3498db;
+}
+
+body.theme-blue .btn-action:hover {
+    background-color: #2980b9;
+}
+
+body.theme-blue .btn-edit {
+    background-color: #3498db;
+}
+
+body.theme-blue .btn-edit:hover {
+    background-color: #2980b9;
+}
+
+/* ============================================
+   GREEN THEME
+   ============================================ */
+body.theme-green {
+    --primary-color: #27ae60;
+    --primary-dark: #229954;
+    --primary-light: #52be80;
+    --accent-color: #27ae60;
+}
+
+body.theme-green .sidebar {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+}
+
+body.theme-green .top-bar {
+    border-bottom-color: #27ae60;
+}
+
+body.theme-green .modal-header {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+}
+
+body.theme-green .table-main thead {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+}
+
+body.theme-green .btn-primary {
+    background-color: #27ae60;
+}
+
+body.theme-green .btn-primary:hover {
+    background-color: #229954;
+}
+
+body.theme-green .search-input:focus {
+    border-color: #27ae60;
+    box-shadow: 0 0 5px rgba(39, 174, 96, 0.3);
+}
+
+body.theme-green .menu-item.active {
+    border-left-color: #52be80;
+}
+
+body.theme-green .stat-icon {
+    color: #27ae60;
+}
+
+body.theme-green .btn-action {
+    background-color: #27ae60;
+}
+
+body.theme-green .btn-action:hover {
+    background-color: #229954;
+}
+
+body.theme-green .btn-edit {
+    background-color: #27ae60;
+}
+
+body.theme-green .btn-edit:hover {
+    background-color: #229954;
+}
+
+body.theme-green .btn-submit {
+    background-color: #27ae60;
+}
+
+body.theme-green .btn-submit:hover {
+    background-color: #229954;
+}
+
+/* ============================================
+   PURPLE THEME
+   ============================================ */
+body.theme-purple {
+    --primary-color: #9b59b6;
+    --primary-dark: #884ea0;
+    --primary-light: #af7ac5;
+    --accent-color: #9b59b6;
+}
+
+body.theme-purple .sidebar {
+    background: linear-gradient(135deg, #9b59b6 0%, #884ea0 100%);
+}
+
+body.theme-purple .top-bar {
+    border-bottom-color: #9b59b6;
+}
+
+body.theme-purple .modal-header {
+    background: linear-gradient(135deg, #9b59b6 0%, #884ea0 100%);
+}
+
+body.theme-purple .table-main thead {
+    background: linear-gradient(135deg, #9b59b6 0%, #884ea0 100%);
+}
+
+body.theme-purple .btn-primary {
+    background-color: #9b59b6;
+}
+
+body.theme-purple .btn-primary:hover {
+    background-color: #884ea0;
+}
+
+body.theme-purple .search-input:focus {
+    border-color: #9b59b6;
+    box-shadow: 0 0 5px rgba(155, 89, 182, 0.3);
+}
+
+body.theme-purple .menu-item.active {
+    border-left-color: #af7ac5;
+}
+
+body.theme-purple .stat-icon {
+    color: #9b59b6;
+}
+
+body.theme-purple .btn-action {
+    background-color: #9b59b6;
+}
+
+body.theme-purple .btn-action:hover {
+    background-color: #884ea0;
+}
+
+body.theme-purple .btn-edit {
+    background-color: #9b59b6;
+}
+
+body.theme-purple .btn-edit:hover {
+    background-color: #884ea0;
+}
+
+body.theme-purple .btn-submit {
+    background-color: #9b59b6;
+}
+
+body.theme-purple .btn-submit:hover {
+    background-color: #884ea0;
+}
+
+/* ============================================
+   ORANGE THEME
+   ============================================ */
+body.theme-orange {
+    --primary-color: #e67e22;
+    --primary-dark: #d35400;
+    --primary-light: #f39c12;
+    --accent-color: #e67e22;
+}
+
+body.theme-orange .sidebar {
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+}
+
+body.theme-orange .top-bar {
+    border-bottom-color: #e67e22;
+}
+
+body.theme-orange .modal-header {
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+}
+
+body.theme-orange .table-main thead {
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+}
+
+body.theme-orange .btn-primary {
+    background-color: #e67e22;
+}
+
+body.theme-orange .btn-primary:hover {
+    background-color: #d35400;
+}
+
+body.theme-orange .search-input:focus {
+    border-color: #e67e22;
+    box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
+}
+
+body.theme-orange .menu-item.active {
+    border-left-color: #f39c12;
+}
+
+body.theme-orange .stat-icon {
+    color: #e67e22;
+}
+
+body.theme-orange .btn-action {
+    background-color: #e67e22;
+}
+
+body.theme-orange .btn-action:hover {
+    background-color: #d35400;
+}
+
+body.theme-orange .btn-edit {
+    background-color: #e67e22;
+}
+
+body.theme-orange .btn-edit:hover {
+    background-color: #d35400;
+}
+
+body.theme-orange .btn-submit {
+    background-color: #e67e22;
+}
+
+body.theme-orange .btn-submit:hover {
+    background-color: #d35400;
+}
+
+/* ============================================
+   THEME BUTTON ACTIVE STATE
+   ============================================ */
+.theme-btn {
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+body.theme-blue .theme-btn[data-theme="blue"],
+body.theme-green .theme-btn[data-theme="green"],
+body.theme-purple .theme-btn[data-theme="purple"],
+body.theme-orange .theme-btn[data-theme="orange"] {
+    opacity: 1;
+    border-color: white;
+    transform: scale(1.15);
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+.sidebar,
+.top-bar,
+.modal-header,
+.table-main thead,
+.btn-primary,
+.btn-action,
+.btn-edit {
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   STATUS COLORS (Theme-aware)
+   ============================================ */
+.status-badge.aktif {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-badge.tidak-aktif {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* ============================================
+   STAT CARDS WITH THEME COLORS
+   ============================================ */
+body.theme-blue .stat-card:nth-child(1) {
+    border-left-color: #3498db;
+}
+
+body.theme-green .stat-card:nth-child(1) {
+    border-left-color: #27ae60;
+}
+
+body.theme-purple .stat-card:nth-child(1) {
+    border-left-color: #9b59b6;
+}
+
+body.theme-orange .stat-card:nth-child(1) {
+    border-left-color: #e67e22;
+}
+
+/* ============================================
+   DARK MODE SUPPORT (Optional)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #f0f0f0;
+    }
+
+    .sidebar {
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .top-bar {
+        background: #2d2d2d;
+        color: #f0f0f0;
+    }
+
+    .stat-card,
+    .chart-box,
+    .recent-box,
+    .table-container {
+        background: #2d2d2d;
+        color: #f0f0f0;
+    }
+
+    .table-mini thead,
+    .table-main thead {
+        background-color: #1a1a1a;
+    }
+
+    .table-mini th,
+    .table-main th {
+        color: #f0f0f0;
+        border-bottom-color: #444;
+    }
+
+    .table-mini td,
+    .table-main td {
+        border-bottom-color: #444;
+    }
+
+    .table-main tbody tr:hover {
+        background-color: #333;
+    }
+
+    .search-input {
+        background-color: #2d2d2d;
+        color: #f0f0f0;
+        border-color: #444;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        background-color: #2d2d2d;
+        color: #f0f0f0;
+        border-color: #444;
+    }
+
+    .modal-content {
+        background: #2d2d2d;
+        color: #f0f0f0;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================
+   HIGH CONTRAST MODE
+   ============================================ */
+@media (prefers-contrast: more) {
+    .btn-primary,
+    .btn-secondary,
+    .btn-action {
+        font-weight: 700;
+        border: 2px solid currentColor;
+    }
+
+    .menu-item.active {
+        border-left: 5px solid white;
+        font-weight: 700;
+    }
+
+    .table-main thead {
+        font-weight: 700;
+    }
+}
