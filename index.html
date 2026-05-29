@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Data Sosial Masyarakat</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.min.js"></script>
+</head>
+<body>
+    <div class="container-app">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-chart-line"></i> Data Sosial</h2>
+                <button class="btn-toggle-sidebar" id="toggleSidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="#" class="menu-item active" data-module="dashboard">
+                    <i class="fas fa-home"></i> <span>Dashboard</span>
+                </a>
+                <a href="#" class="menu-item" data-module="tempat-ibadah">
+                    <i class="fas fa-mosque"></i> <span>Tempat Ibadah</span>
+                </a>
+                <a href="#" class="menu-item" data-module="penerima-bantuan">
+                    <i class="fas fa-hands-helping"></i> <span>Penerima Bantuan</span>
+                </a>
+                <a href="#" class="menu-item" data-module="dasawisma">
+                    <i class="fas fa-home"></i> <span>Dasawisma</span>
+                </a>
+                <a href="#" class="menu-item" data-module="posyandu">
+                    <i class="fas fa-hospital"></i> <span>Posyandu</span>
+                </a>
+                <a href="#" class="menu-item" data-module="rt">
+                    <i class="fas fa-users"></i> <span>Rukun Tetangga</span>
+                </a>
+                <a href="#" class="menu-item" data-module="usia-anak">
+                    <i class="fas fa-child"></i> <span>Usia Anak Sekolah</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="theme-selector">
+                    <p>Tema Warna:</p>
+                    <div class="theme-buttons">
+                        <button class="theme-btn" data-theme="blue" title="Blue">
+                            <span class="theme-color" style="background: #3498db;"></span>
+                        </button>
+                        <button class="theme-btn" data-theme="green" title="Green">
+                            <span class="theme-color" style="background: #27ae60;"></span>
+                        </button>
+                        <button class="theme-btn" data-theme="purple" title="Purple">
+                            <span class="theme-color" style="background: #9b59b6;"></span>
+                        </button>
+                        <button class="theme-btn" data-theme="orange" title="Orange">
+                            <span class="theme-color" style="background: #e67e22;"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- HEADER -->
+            <header class="top-bar">
+                <div class="header-left">
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <button class="btn-action" id="btnRefresh" title="Refresh">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                    <div class="user-info">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT AREA -->
+            <section class="content">
+                <!-- DASHBOARD MODULE -->
+                <div class="module" id="module-dashboard">
+                    <!-- Statistics Cards -->
+                    <div class="stats-container">
+                        <div class="stat-card" style="border-left: 5px solid #3498db;">
+                            <div class="stat-icon"><i class="fas fa-mosque"></i></div>
+                            <div class="stat-content">
+                                <h3>Tempat Ibadah</h3>
+                                <p class="stat-number" id="stat-tempat-ibadah">0</p>
+                                <small>Total Data</small>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" style="border-left: 5px solid #e74c3c;">
+                            <div class="stat-icon"><i class="fas fa-hands-helping"></i></div>
+                            <div class="stat-content">
+                                <h3>Penerima Bantuan</h3>
+                                <p class="stat-number" id="stat-penerima-bantuan">0</p>
+                                <small>Total Bantuan</small>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" style="border-left: 5px solid #27ae60;">
+                            <div class="stat-icon"><i class="fas fa-home"></i></div>
+                            <div class="stat-content">
+                                <h3>Dasawisma</h3>
+                                <p class="stat-number" id="stat-dasawisma">0</p>
+                                <small>Total Dasawisma</small>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" style="border-left: 5px solid #f39c12;">
+                            <div class="stat-icon"><i class="fas fa-hospital"></i></div>
+                            <div class="stat-content">
+                                <h3>Posyandu</h3>
+                                <p class="stat-number" id="stat-posyandu">0</p>
+                                <small>Total Posyandu</small>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" style="border-left: 5px solid #9b59b6;">
+                            <div class="stat-icon"><i class="fas fa-users"></i></div>
+                            <div class="stat-content">
+                                <h3>Rukun Tetangga</h3>
+                                <p class="stat-number" id="stat-rt">0</p>
+                                <small>Total RT</small>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" style="border-left: 5px solid #1abc9c;">
+                            <div class="stat-icon"><i class="fas fa-child"></i></div>
+                            <div class="stat-content">
+                                <h3>Usia Anak Sekolah</h3>
+                                <p class="stat-number" id="stat-usia-anak">0</p>
+                                <small>Total Anak</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts -->
+                    <div class="charts-container">
+                        <div class="chart-box">
+                            <h3>Distribusi Jenis Tempat Ibadah</h3>
+                            <canvas id="chartJenisIbadah"></canvas>
+                        </div>
+                        <div class="chart-box">
+                            <h3>Distribusi Jenis Bantuan</h3>
+                            <canvas id="chartJenisBantuan"></canvas>
+                        </div>
+                        <div class="chart-box">
+                            <h3>Status Keaktifan RT</h3>
+                            <canvas id="chartStatusRT"></canvas>
+                        </div>
+                        <div class="chart-box">
+                            <h3>Total Balita & Lansia di Posyandu</h3>
+                            <canvas id="chartBalitaLansia"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Recent Data Tables -->
+                    <div class="recent-data-container">
+                        <div class="recent-box">
+                            <h3>Data Tempat Ibadah Terbaru</h3>
+                            <div class="table-scroll">
+                                <table class="table-mini">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>Jenis</th>
+                                            <th>Pengurus</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recentTempatIbadah"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="recent-box">
+                            <h3>Penerima Bantuan Terbaru</h3>
+                            <div class="table-scroll">
+                                <table class="table-mini">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>Jenis Bantuan</th>
+                                            <th>Tanggal</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recentPenerimaBantuan"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TEMPAT IBADAH MODULE -->
+                <div class="module" id="module-tempat-ibadah" style="display: none;">
+                    <div class="module-header">
+                        <div class="search-add">
+                            <input type="text" id="searchTempatIbadah" placeholder="Cari nama, jenis, atau pengurus..." class="search-input">
+                            <button class="btn-primary" id="btnAddTempatIbadah">
+                                <i class="fas fa-plus"></i> Tambah Data
+                            </button>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-secondary" id="btnDownloadTempatIbadah">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="table-main" id="tableTempatIbadah">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Tempat</th>
+                                    <th>Jenis</th>
+                                    <th>Pengurus</th>
+                                    <th>No HP</th>
+                                    <th>Alamat</th>
+                                    <th>Koordinat</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyTempatIbadah"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- PENERIMA BANTUAN MODULE -->
+                <div class="module" id="module-penerima-bantuan" style="display: none;">
+                    <div class="module-header">
+                        <div class="search-add">
+                            <input type="text" id="searchPenerimaBantuan" placeholder="Cari NIK atau nama..." class="search-input">
+                            <button class="btn-primary" id="btnAddPenerimaBantuan">
+                                <i class="fas fa-plus"></i> Tambah Data
+                            </button>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-secondary" id="btnDownloadPenerimaBantuan">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="table-main" id="tablePenerimaBantuan">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>NIK</th>
+                                    <th>Nama</th>
+                                    <th>Jenis Bantuan</th>
+                                    <th>Tanggal</th>
+                                    <th>Jumlah</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyPenerimaBantuan"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- DASAWISMA MODULE -->
+                <div class="module" id="module-dasawisma" style="display: none;">
+                    <div class="module-header">
+                        <div class="search-add">
+                            <input type="text" id="searchDasawisma" placeholder="Cari nama atau RT..." class="search-input">
+                            <button class="btn-primary" id="btnAddDasawisma">
+                                <i class="fas fa-plus"></i> Tambah Data
+                            </button>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-secondary" id="btnDownloadDasawisma">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="table-main" id="tableDasawisma">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Dasawisma</th>
+                                    <th>Alamat</th>
+                                    <th>RT</th>
+                                    <th>Ketua</th>
+                                    <th>No HP Ketua</th>
+                                    <th>Sekretaris</th>
+                                    <th>Bendahara</th>
+                                    <th>Jumlah Anggota</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyDasawisma"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- POSYANDU MODULE -->
+                <div class="module" id="module-posyandu" style="display: none;">
+                    <div class="module-header">
+                        <div class="search-add">
+                            <input type="text" id="searchPosyandu" placeholder="Cari nama posyandu atau ketua..." class="search-input">
+                            <button class="btn-primary" id="btnAddPosyandu">
+                                <i class="fas fa-plus"></i> Tambah Data
+                            </button>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-secondary" id="btnDownloadPosyandu">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="table-main" id="tablePosyandu">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Posyandu</th>
+                                    <th>Ketua</th>
+                                    <th>No HP</th>
+                                    <th>Balita</th>
+                                    <th>Lansia</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyPosyandu"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- RT MODULE -->
+                <div class="module" id="module-rt" style="display: none;">
+                    <div class="module-header">
+                        <div class="search-add">
+                            <input type="text" id="searchRT" placeholder="Cari nomor RT atau ketua..." class="search-input">
+                            <button class="btn-primary" id="btnAddRT">
+                                <i class="fas fa-plus"></i> Tambah Data
+                            </button>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-secondary" id="btnDownloadRT">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="table-main" id="tableRT">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nomor RT</th>
+                                    <th>Ketua</th>
+                                    <th>No HP</th>
+                                    <th>Jumlah KK</th>
+                                    <th>Laki-laki</th>
+                                    <th>Perempuan</th>
+                                    <th>Alamat</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyRT"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- USIA ANAK SEKOLAH MODULE -->
+                <div class="module" id="module-usia-anak" style="display: none;">
+                    <div class="module-header">
+                        <div class="search-add">
+                            <input type="text" id="searchUsiaAnak" placeholder="Cari nama atau sekolah..." class="search-input">
+                            <button class="btn-primary" id="btnAddUsiaAnak">
+                                <i class="fas fa-plus"></i> Tambah Data
+                            </button>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-secondary" id="btnDownloadUsiaAnak">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="table-main" id="tableUsiaAnak">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Usia</th>
+                                    <th>Sekolah</th>
+                                    <th>Kelas</th>
+                                    <th>RT</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyUsiaAnak"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- MODAL FORMS -->
+    <div class="modal" id="modalForm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Tambah Data</h2>
+                <button class="btn-close" id="btnCloseModal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Form content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/data.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/export.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
